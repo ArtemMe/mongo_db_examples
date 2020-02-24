@@ -1,0 +1,28 @@
+version: "3"
+services:
+  mongo1:
+    image: mongo
+    command: mongod --replSet rs0 --port 27017
+    ports:
+      - 27017:27017
+    networks:
+      - my-mongo-cluster
+
+  mongo2:
+    image: mongo
+    command: mongod --replSet rs0 --port 27018
+    ports:
+      - 27018:27018
+    networks:
+      - my-mongo-cluster
+
+  mongo3:
+    image: mongo
+    command: mongod --replSet rs0 --port 27019
+    ports:
+      - 27019:27019
+    networks:
+      - my-mongo-cluster
+
+networks:
+  my-mongo-cluster:
